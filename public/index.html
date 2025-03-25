@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FO Interface</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    label { display: block; margin: 10px 0 5px; }
+    button { margin-top: 10px; padding: 5px 10px; }
+  </style>
+</head>
+<body>
+  <h1>Forward Observer</h1>
+  <form id="foForm">
+    <label>FO Easting: <input type="number" id="foEasting" required></label>
+    <label>FO Northing: <input type="number" id="foNorthing" required></label>
+    <label>Azimuth (degrees): <input type="number" id="azimuth" min="0" max="360" required></label>
+    <label>Range (meters): <input type="number" id="range" min="0" required></label>
+    <label>Target Type: <input type="text" id="targetType" required></label>
+    <label>Target Altitude (meters, optional): <input type="number" id="targetAltitude"></label>
+    <button type="submit">Submit Target</button>
+  </form>
+  <p id="result"></p>
+  <script src="fo.js"></script>
+</body>
+</html>
