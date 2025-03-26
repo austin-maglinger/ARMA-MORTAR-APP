@@ -8,7 +8,7 @@ let fireMissions = [];
 let mtPosition = null;
 let idCounter = 0;
 
-// Range tables
+// Range tables (unchanged, included for completeness)
 const rangeTables = {
   "4 rings": [
     { range: 400, elev: 1531, dElevPer100m: 9 },
@@ -63,7 +63,7 @@ const rangeTables = {
   ],
   "2 rings": [
     { range: 200, elev: 1538, dElevPer100m: 15 },
-    { range: 300, elev: 1507, dElevPer100m: 16 },
+    { range: 300, elev: 1507, dEvaltPer100m: 16 },
     { range: 400, elev: 1475, dElevPer100m: 16 },
     { range: 500, elev: 1443, dElevPer100m: 16 },
     { range: 600, elev: 1410, dElevPer100m: 16 },
@@ -181,9 +181,13 @@ app.post('/api/firing-data', (req, res) => {
   const elevation = interpolateValue(table, range, 'elev');
   const dElevPer100m = interpolateValue(table, range, 'dElevPer100m');
 
-  const altitudeDiff = fm.targetAltitude - mtPosition.altitude;
-  const adjustment = dElevPer100m ? (altitudeDiff / 100) * dElevPer100m : 0;
-  const adjustedElevation = elevation + adjustment;
+  // Only adjust elevation if targetAltitude is provided and non-zero
+  let adjustedElevation = elevation;
+  if (fm.targetAltitude !== 0 && dElevPer100m) {
+    const altitudeDiff = fm.targetAltitude - mtPosition.altitude;
+    const adjustment = (altitudeDiff / 100) * dElevPer100m;
+    adjustedElevation = elevation + adjustment;
+  }
 
   res.json({ range, azimuth, elevation: adjustedElevation });
 });
