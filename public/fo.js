@@ -13,5 +13,10 @@ document.getElementById('foForm').addEventListener('submit', async (e) => {
     body: JSON.stringify({ foEasting, foNorthing, azimuthDeg, rangeM, targetType, targetAltitude })
   });
   const data = await response.json();
-  document.getElementById('result').textContent = `Submitted: ${data.id}, Target at (${data.targetEasting.toFixed(2)}, ${data.targetNorthing.toFixed(2)})`;
+  
+  const eastingStr = Math.round(data.targetEasting).toString().padStart(5, '0');
+  const northingStr = Math.round(data.targetNorthing).toString().padStart(5, '0');
+  const grid = `${eastingStr} ${northingStr}`;
+  
+  document.getElementById('result').textContent = `Submitted: ${data.id}, Target at ${grid}`;
 });
