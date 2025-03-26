@@ -8,22 +8,24 @@
     th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
     th { background-color: #f2f2f2; }
     label { margin-right: 10px; }
-    #mtPositionForm, #firingData { margin-top: 20px; }
+    #mtPositionForm, #firingData, #mtPosition { margin-top: 20px; }
     button { padding: 5px 10px; }
   </style>
 </head>
 <body>
   <h1>Mortar Team</h1>
 
-  <div id="mtPosition" style="display: none;">
-    <h2>MT Position Set</h2>
+  <div id="mtPosition">
+    <h2>Current MT Position</h2>
+    <p id="currentPosition">Not set</p>
   </div>
+
   <div id="mtPositionForm">
-    <h2>Set MT Position</h2>
+    <h2>Set/Update MT Position</h2>
     <label>MT Easting: <input type="number" id="mtEasting" required></label>
     <label>MT Northing: <input type="number" id="mtNorthing" required></label>
     <label>MT Altitude (meters): <input type="number" id="mtAltitude" required></label>
-    <button onclick="setMTPosition()">Set Position</button>
+    <button onclick="setMTPosition()">Update Position</button>
   </div>
 
   <div style="margin-top: 20px;">
@@ -40,7 +42,7 @@
 
   <h2>Fire Missions</h2>
   <table id="fmTable">
-    <tr><th>ID</th><th>Type</th><th>Time</th><th>Easting</th><th>Northing</th><th>Action</th></tr>
+    <tr><th>ID</th><th>Type</th><th>Time</th><th>Grid</th><th>Action</th></tr>
   </table>
 
   <div id="firingData"></div>
