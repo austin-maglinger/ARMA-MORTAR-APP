@@ -2,50 +2,61 @@
 <html>
 <head>
   <title>MT Interface</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: 'Courier New', monospace;
       background-color: #2e2e2e;
       color: #d4d4d4;
       margin: 20px;
+      padding: 0;
+      box-sizing: border-box;
     }
     h1, h2 {
       color: #olive-drab;
       text-transform: uppercase;
+      font-size: 1.8em;
     }
     label {
       display: block;
       margin: 10px 0 5px;
-      color: #39FF14; /* Neon green for labels */
+      color: #39FF14; /* Neon green */
+      font-size: 1.1em;
     }
     input, select {
       background-color: #3c3c3c;
       border: 1px solid #olive-drab;
       color: #d4d4d4;
-      padding: 5px;
+      padding: 8px;
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 1em;
     }
     button {
       background-color: #olive-drab;
-      color: #333; /* Dark text for contrast */
+      color: #333;
       border: none;
-      padding: 8px 15px;
+      padding: 10px 20px;
       margin: 10px 0;
       cursor: pointer;
       text-transform: uppercase;
+      font-size: 1em;
     }
     button:hover {
       background-color: #556b2f;
-      color: #fff; /* White text on hover */
+      color: #fff;
     }
     table {
       border-collapse: collapse;
       width: 100%;
       background-color: #3c3c3c;
+      margin-top: 20px;
     }
     th, td {
       border: 1px solid #olive-drab;
       padding: 8px;
       text-align: left;
+      font-size: 1em;
     }
     th {
       background-color: #olive-drab;
@@ -53,6 +64,41 @@
     }
     p {
       color: #d4d4d4;
+      font-size: 1em;
+      word-wrap: break-word;
+    }
+    #mtPosition, #mtPositionForm, #firingData {
+      max-width: 600px;
+      margin: 20px auto;
+    }
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
+      h1, h2 {
+        font-size: 1.5em;
+      }
+      label {
+        font-size: 1em;
+      }
+      input, select {
+        padding: 10px;
+        font-size: 0.9em;
+      }
+      button {
+        padding: 12px;
+        font-size: 0.9em;
+      }
+      table {
+        display: block;
+        overflow-x: auto; /* Horizontal scroll for tables */
+        white-space: nowrap;
+      }
+      th, td {
+        padding: 6px;
+        font-size: 0.85em;
+      }
+      body {
+        margin: 10px;
+      }
     }
   </style>
 </head>
@@ -72,7 +118,7 @@
     <button onclick="setMTPosition()">Update Position</button>
   </div>
 
-  <div style="margin-top: 20px;">
+  <div style="margin-top: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
     <label for="ringConfig">Mortar Configuration:</label>
     <select id="ringConfig">
       <option value="" disabled selected>Select configuration</option>
