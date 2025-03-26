@@ -3,9 +3,43 @@
 <head>
   <title>FO Interface</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    label { display: block; margin: 10px 0 5px; }
-    button { margin-top: 10px; padding: 5px 10px; }
+    body {
+      font-family: 'Courier New', monospace;
+      background-color: #2e2e2e;
+      color: #d4d4d4;
+      margin: 20px;
+    }
+    h1, h2 {
+      color: #olive-drab;
+      text-transform: uppercase;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      color: #39FF14; /* Neon green for labels */
+    }
+    input, select {
+      background-color: #3c3c3c;
+      border: 1px solid #olive-drab;
+      color: #d4d4d4;
+      padding: 5px;
+    }
+    button {
+      background-color: #olive-drab;
+      color: #333; /* Dark text for contrast */
+      border: none;
+      padding: 8px 15px;
+      margin: 10px 0;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+    button:hover {
+      background-color: #556b2f;
+      color: #fff; /* White text on hover */
+    }
+    p {
+      color: #d4d4d4;
+    }
   </style>
 </head>
 <body>
@@ -20,6 +54,7 @@
     <button type="submit">Submit Target</button>
   </form>
   <p id="result"></p>
+  <button onclick="window.location.href='/mt.html'">Go to Mortar Team Interface</button>
   <script src="fo.js"></script>
 </body>
 </html>
