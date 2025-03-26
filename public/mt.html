@@ -3,13 +3,57 @@
 <head>
   <title>MT Interface</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    table { border-collapse: collapse; width: 100%; }
-    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-    th { background-color: #f2f2f2; }
-    label { margin-right: 10px; }
-    #mtPositionForm, #firingData, #mtPosition { margin-top: 20px; }
-    button { padding: 5px 10px; }
+    body {
+      font-family: 'Courier New', monospace;
+      background-color: #2e2e2e;
+      color: #d4d4d4;
+      margin: 20px;
+    }
+    h1, h2 {
+      color: #olive-drab;
+      text-transform: uppercase;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      color: #39FF14; /* Neon green for labels */
+    }
+    input, select {
+      background-color: #3c3c3c;
+      border: 1px solid #olive-drab;
+      color: #d4d4d4;
+      padding: 5px;
+    }
+    button {
+      background-color: #olive-drab;
+      color: #333; /* Dark text for contrast */
+      border: none;
+      padding: 8px 15px;
+      margin: 10px 0;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+    button:hover {
+      background-color: #556b2f;
+      color: #fff; /* White text on hover */
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background-color: #3c3c3c;
+    }
+    th, td {
+      border: 1px solid #olive-drab;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #olive-drab;
+      color: #fff;
+    }
+    p {
+      color: #d4d4d4;
+    }
   </style>
 </head>
 <body>
@@ -46,6 +90,7 @@
   </table>
 
   <div id="firingData"></div>
+  <button onclick="window.location.href='/index.html'">Go to Forward Observer Interface</button>
   <script src="mt.js"></script>
 </body>
 </html>
