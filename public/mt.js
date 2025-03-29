@@ -34,7 +34,7 @@ async function loadFireMissions() {
       <td>${fm.targetType}</td>
       <td>${new Date(fm.timeSubmitted).toLocaleTimeString()}</td>
       <td>${grid}</td>
-      <td><button onclick="showFiringData('${fm.id}')">Select</button></td>
+      <td><button onclick="showFiringData('${fm.id}')">Select</button><button onclick="removeFiringData('${fm.id}')">Remove</button></td>
     `;
   });
 }
@@ -63,6 +63,21 @@ async function showFiringData(fireMissionId) {
       <p>Azimuth: ${azimuthMils} mils</p>
       <p>Elevation: ${data.elevation.toFixed(2)} mils</p>
     `;
+  }
+}
+
+async function removeFiringData(fireMissionId) {
+  const response = await fetch('/api/firing-data', {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ fireMissionId })
+  });
+  const data = await response.json();
+
+  if (data.error) {
+    alert(data.error);
+  } else {
+    document.getElementById('firingData').innerHTML = '';
   }
 }
 

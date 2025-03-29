@@ -192,5 +192,14 @@ app.post('/api/firing-data', (req, res) => {
   res.json({ range, azimuth, elevation: adjustedElevation });
 });
 
+app.delete('/api/firing-data', (req, res) => {
+  const { fireMissionId } = req.body;
+  const index = fireMissions.findIndex(f => f.id === fireMissionId);
+  if (index === -1) return res.status(404).json({ error: 'Fire mission not found' });
+
+  fireMissions.splice(index, 1);
+  res.json({ message: 'Fire mission removed' });
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
